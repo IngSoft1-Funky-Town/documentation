@@ -183,7 +183,7 @@
 * **GET**:
   * **returns**: list[[Behavior](#behavior)]
 * **POST**:
-  * **asks**: optional[[Behavior](#behavior)] (without id)
+  * **asks**: [Behavior](#behavior) (without id)
   * **returns**: [Behavior](#behavior)
 
 ### /behaviors/{behavior_id}/
@@ -249,7 +249,7 @@
 
 * **GET**:
   * **returns**: [Team](#team)
-* **POST**:
+* **PUT**:
   * **asks**: optional[[Team](#team)] (without [Club](#club))
   * **returns**: [Team](#team)
 
@@ -293,3 +293,240 @@
 
 * **POST**:
   * only method
+
+---
+
+## WebSocket API
+
+### Index
+
+#### Screens
+
+* [Leagues List Screen](#leagues-list-screen)
+  * [leagues:add](#leaguesadd)
+  * [leagues:update:match](#leaguesupdatematch)
+  * [leagues:update:match:goals](#leaguesupdatematchgoals)
+  * [leagues:update:match:status](#leaguesupdatematchstatus)
+  * [leagues:update:status](#leaguesupdatestatus)
+  * [leagues:update:clubs_count](#leaguesupdateclubs_count)
+  * [leagues:delete](#leaguesdelete)
+* [League Screen](#league-screen)
+  * [league:status](#leaguestatus)
+  * [league:delete](#leaguedelete)
+  * [league:club:add](#leagueclubadd)
+  * [league:club:delete](#leagueclubdelete)
+  * [league:table](#leaguetable)
+  * [league:match:goals](#leaguematchgoals)
+  * [league:match:status](#leaguematchstatus)
+* [Match Screen](#match-screen)
+  * [match:update](#matchupdate)
+  * [match:goals](#matchgoals)
+  * [match:break](#matchbreak)
+  * [client:match:substitutes](#clientmatchsubstitutes)
+  * [client:match:behaviors](#clientmatchbehaviors)
+  * [match:status](#matchstatus)
+
+---
+
+## Screens
+
+### Leagues List Screen
+
+* <a id="leaguesadd"></a>**leagues:add** *(SERVER -> CLIENT)*:
+  * Esquemas relacionados: [League](#league)
+  ```jsonc
+  {
+    "type": "leagues:add",
+    "league": League
+  }
+  ```
+
+> *Update match completo*
+
+* <a id="leaguesupdatematch"></a>**leagues:update:match** *(SERVER -> CLIENT)*:
+  * Esquemas relacionados: [Match](#match)
+  ```jsonc
+  {
+    "type": "leagues:update:match",
+    "league_id": number,
+    "match": Match
+  }
+  ```
+
+> *Update match en vivo*
+
+* <a id="leaguesupdatematchgoals"></a>**leagues:update:match:goals** *(SERVER -> CLIENT)*:
+  ```jsonc
+  {
+    "type": "leagues:update:match:goals",
+    "league_id": number,
+    "local_goals": number,
+    "visitor_goals": number
+  }
+  ```
+
+* <a id="leaguesupdatematchstatus"></a>**leagues:update:match:status** *(SERVER -> CLIENT)*:
+  ```jsonc
+  {
+    "type": "leagues:update:match:status",
+    "league_id": number,
+    "status": "pending" | "in_progress" | "finished"
+  }
+  ```
+
+> *Update league*
+
+* <a id="leaguesupdatestatus"></a>**leagues:update:status** *(SERVER -> CLIENT)*:
+  ```jsonc
+  {
+    "type": "leagues:update:status",
+    "league_id": number,
+    "result": number,
+    "status": "pending" | "in_progress" | "finished"
+  }
+  ```
+
+* <a id="leaguesupdateclubs_count"></a>**leagues:update:clubs_count** *(SERVER -> CLIENT)*:
+  ```jsonc
+  {
+    "type": "leagues:update:clubs_count",
+    "league_id": number,
+    "clubs_count": number
+  }
+  ```
+
+* <a id="leaguesdelete"></a>**leagues:delete** *(SERVER -> CLIENT)*:
+  ```jsonc
+  {
+    "type": "leagues:delete",
+    "league_id": number
+  }
+  ```
+
+### League Screen
+
+* <a id="leaguestatus"></a>**league:status** *(SERVER -> CLIENT)*:
+  ```jsonc
+  {
+    "type": "league:status",
+    "status": "pending" | "in_progress" | "finished"
+  }
+  ```
+
+> *Pending league*
+
+* <a id="leaguedelete"></a>**league:delete** *(SERVER -> CLIENT)*:
+  ```jsonc
+  {
+    "type": "league:delete"
+  }
+  ```
+
+* <a id="leagueclubadd"></a>**league:club:add** *(SERVER -> CLIENT)*:
+  * Esquemas relacionados: [Club](#club)
+  ```jsonc
+  {
+    "type": "league:club:add",
+    "club": Club
+  }
+  ```
+
+* <a id="leagueclubdelete"></a>**league:club:delete** *(SERVER -> CLIENT)*:
+  ```jsonc
+  {
+    "type": "league:club:delete",
+    "club_id": number
+  }
+  ```
+
+> *In-progress league*
+
+* <a id="leaguetable"></a>**league:table** *(SERVER -> CLIENT)*:
+  * Esquemas relacionados: [League Table Entry](#league_table_entry)
+  ```jsonc
+  {
+    "type": "league:table",
+    "table": list[League_table_entry]
+  }
+  ```
+
+* <a id="leaguematchgoals"></a>**league:match:goals** *(SERVER -> CLIENT)*:
+  ```jsonc
+  {
+    "type": "league:match:goals",
+    "match_id": number,
+    "local_goals": number,
+    "visitor_goals": number
+  }
+  ```
+
+* <a id="leaguematchstatus"></a>**league:match:status** *(SERVER -> CLIENT)*:
+  ```jsonc
+  {
+    "type": "league:match:status",
+    "match_id": number,
+    "status": "pending" | "in_progress" | "finished"
+  }
+  ```
+
+### Match Screen
+
+* <a id="matchupdate"></a>**match:update** *(SERVER -> CLIENT)*:
+  * Esquemas relacionados: [Coordinates](#coordinates)
+  ```jsonc
+  {
+    "type": "match:update",
+    "local_coords": (Coordinates, Coordinates, Coordinates), // players positions
+    "visitor_coords": (Coordinates, Coordinates, Coordinates), // players positions
+    "ball": Coordinates,
+    "time_left": number
+  }
+  ```
+
+* <a id="matchgoals"></a>**match:goals** *(SERVER -> CLIENT)*:
+  ```jsonc
+  {
+    "type": "match:goals",
+    "local_goals": number,
+    "visitor_goals": number
+  }
+  ```
+
+> *Cambia a jugadores titulares y suplentes*
+
+* <a id="matchbreak"></a>**match:break** *(SERVER -> CLIENT)*:
+  * Esquemas relacionados: [Player](#player)
+  ```jsonc
+  {
+    "type": "match:break",
+    "local": (player_id, player_id, player_id),
+    "visitor": (player_id, player_id, player_id)
+  }
+  ```
+
+* <a id="clientmatchsubstitutes"></a>**client:match:substitutes** *(CLIENT -> SERVER)*:
+  * Esquemas relacionados: [Player](#player)
+  ```jsonc
+  {
+    "type": "client:match:substitutes",
+    "players": (player_id, player_id, player_id)
+  }
+  ```
+
+* <a id="clientmatchbehaviors"></a>**client:match:behaviors** *(CLIENT -> SERVER)*:
+  * Esquemas relacionados: [Behavior](#behavior)
+  ```jsonc
+  {
+    "type": "client:match:behaviors",
+    "behaviors": (behavior_id, behavior_id, behavior_id)
+  }
+  ```
+
+* <a id="matchstatus"></a>**match:status** *(SERVER -> CLIENT)*:
+  ```jsonc
+  {
+    "type": "match:status",
+    "status": "pending" | "in_progress" | "finished"
+  }
+  ```
+
