@@ -40,7 +40,9 @@
 * [UC-34: User consults the results of matches](#uc-34-user-consults-the-results-of-matches)
 * [UC-35: Navigate global ranking](#uc-35-navigate-global-ranking)
 
-#### UC-01 USER REGISTRATION
+---
+
+## UC-01 USER REGISTRATION
 
 | UC-01 | USER REGISTRATION | |
 | - | - | - |
@@ -55,7 +57,7 @@
 | | 2.1 | In case required fields are missing, the system must display a validation error and prompts for completion. |
 | | 2.2 | In case the email is already registered, the system must redirect the user to the login interface ([UC-02](#uc-02-user-login)). |
 
-#### UC-02 USER LOGIN
+## UC-02 USER LOGIN
 
 | UC-02 | USER LOGIN | |
 | - | - | - |
@@ -72,7 +74,7 @@
 | | 2.2 | In case the email does not exist, the system must return an authentication error. |
 | | 2.3 | In case the password is incorrect, the system must return an "Invalid Credentials" message. |
 
-#### UC-03 USER LOGOUT
+## UC-03 USER LOGOUT
 
 | UC-03 | USER LOGOUT | |
 | - | - | - |
@@ -86,7 +88,7 @@
 | **Exceptions** | \# | **Action (Actor)** |
 | | \- | None |
 
-#### UC-04 NAVIGATE PROFILE
+## UC-04 NAVIGATE PROFILE
 
 | UC-04 | PROFILE | |
 | - | - | - |
@@ -100,7 +102,7 @@
 | **Exceptions** | \# | **Action (Actor)** |
 | | \- | None |
 
-#### UC-05 EDIT CLUB
+## UC-05 EDIT CLUB
 
 | UC-05 | EDIT CLUB | |
 | - | - | - |
@@ -114,7 +116,7 @@
 | **Exceptions** | \# | **Action (Actor)** |
 | | 2.1 | In case no field has been modified, the system must display a validation error and prompts for completion. |
 
-#### UC-06 CREATE PLAYER
+## UC-06 CREATE PLAYER
 
 | UC-06 | CREATE PLAYER | |
 | - | - | - |
@@ -130,7 +132,7 @@
 | | 3.1 | In case required fields are missing, the system must display a validation error and prompts for completion. |
 | | 3.2 | In case the name or number is already in use, the system must display a validation error and prompts for completion. |
 
-#### UC-07 DELETE PLAYER
+## UC-07 DELETE PLAYER
 
 | UC-07 | DELETE PLAYER | |
 | - | - | - |
@@ -146,7 +148,7 @@
 | **Exceptions** | \# | **Action (Actor)** |
 | | 2.1 | **I**n case the user cancels the confirmation dialog, the system must abort the deletion and return to the previous state. |
 
-#### UC-08 CREATE BEHAVIOR
+## UC-08 CREATE BEHAVIOR
 
 | UC-08 | CREATE BEHAVIOR | |
 | - | - | - |
@@ -163,7 +165,7 @@
 | | 3.2 | In case the name is already in use, the system must display a validation error and prompts for completion. |
 | | 3.3 | In case the code is invalid, the system must display a validation error and prompts for correction. |
 
-#### UC-09 EDIT BEHAVIOR
+## UC-09 EDIT BEHAVIOR
 
 | UC-09 | EDIT BEHAVIOR | |
 | - | - | - |
@@ -180,7 +182,7 @@
 | | 3.2 | In case the new name is already in use, the system must display a validation error and prompts for correction. |
 | | 3.3 | In case the new code is invalid, the system must display a validation error and prompts for correction. |
 
-#### UC-10 DELETE BEHAVIOR
+## UC-10 DELETE BEHAVIOR
 
 | UC-10 | DELETE BEHAVIOR | |
 | - | - | - |
@@ -196,7 +198,7 @@
 | **Exceptions** | \# | **Action (Actor)** |
 | | 2.1 | **I**n case the user cancels the confirmation dialog, the system must abort the deletion and return to the previous state. |
 
-#### UC-11 CREATE DEFAULT TEAM
+## UC-11 CREATE DEFAULT TEAM
 
 | UC-11 | CREATE DEFAULT TEAM | |
 | - | - | - |
@@ -214,7 +216,7 @@
 | | 5.1 | In case not all the players have one associated behavior, the system must display a validation error and prompts for correction. |
 | | 5.2 | In case the user selected less than six players, the system must display a validation error and prompts for completion. |
 
-#### UC-12 CREATE LEAGUE
+## UC-12 CREATE LEAGUE
 
 | UC-12 | CREATE LEAGUE | |
 | - | - | - |
@@ -232,7 +234,7 @@
 | | 3.2 | In case required fields are missing, the system must display a validation error and prompts for completion. |
 | | 3.3 | In case an input exceeds the bounds, the system must display a validation error and prompts for correction. |
 
-#### UC-13 NAVIGATE LEAGUES
+## UC-13 NAVIGATE LEAGUES
 
 | UC-13 | NAVIGATE LEAGUES | |
 | - | - | - |
@@ -246,7 +248,7 @@
 | **Exceptions** | \# | **Action (Actor)** |
 | | 2.1 | In case there are no leagues available, the system must display a message indicating the list is currently empty. |
 
-#### UC-14 CREATE FRIENDLY MATCH
+## UC-14 CREATE FRIENDLY MATCH
 
 | UC-14 | CREATE FRIENDLY MATCH | |
 | - | - | - |
@@ -263,7 +265,7 @@
 | | 3.2 | In case required fields are missing, the system must display a validation error and prompts for completion. |
 | | 3.3 | In case an input exceeds the bounds, the system must display a validation error and prompts for correction. |
 
-#### UC-15 NAVIGATE FRIENDLY MATCHES
+## UC-15 NAVIGATE FRIENDLY MATCHES
 
 | UC-15 | NAVIGATE FRIENDLY MATCHES | |
 | - | - | - |
@@ -277,7 +279,7 @@
 | **Exceptions** | \# | **Action (Actor)** |
 | | 2.1 | In case there are no friendly matches available, the system must display a message indicating the list is currently empty. |
 
-#### UC-16 NAVIGATE CURRENT ACTIVITY
+## UC-16 NAVIGATE CURRENT ACTIVITY
 
 | UC-16 | NAVIGATE CURRENT ACTIVITY | |
 | - | - | - |
@@ -291,7 +293,7 @@
 | **Exceptions** | \# | **Action (Actor)** |
 | | 2.1 | In case there are no current matches or leagues, the system must display a message indicating the list is currently empty. |
 
-#### UC-17 USER JOINS A PUBLIC LEAGUE
+## UC-17 USER JOINS A PUBLIC LEAGUE
 
 | UC-17 | USER JOINS A PUBLIC LEAGUE | |
 | - | - | - |
@@ -307,7 +309,7 @@
 | | 3.1 | In case the league was started by the creator while the user was joining, the system must reject the registration. |
 | | 3.2 | In case the league reaches its maximum capacity before the user joins, the system displays an error message. |
 
-#### UC-18 USER JOINS A PRIVATE LEAGUE
+## UC-18 USER JOINS A PRIVATE LEAGUE
 
 | UC-18 | USER JOINS A PRIVATE LEAGUE | |
 | - | - | - |
@@ -324,7 +326,7 @@
 | | 2.1 | In case the league reaches its maximum capacity before the user joins, the system displays an error message. |
 | | 2.2 | In case the league was started by the creator while the user was joining, the system must reject the registration. |
 
-#### UC-19 USER JOINS A PUBLIC FRIENDLY MATCH
+## UC-19 USER JOINS A PUBLIC FRIENDLY MATCH
 
 | UC-19 | USER JOINS A FRIENDLY MATCH | |
 | - | - | - |
@@ -339,7 +341,7 @@
 | **Exceptions** | \# | **Action (Actor)** |
 | | 1 | In case the match is occupied while the user is joining, the system must reject the registration. |
 
-#### UC-20 USER JOINS A PRIVATE FRIENDLY MATCH
+## UC-20 USER JOINS A PRIVATE FRIENDLY MATCH
 
 | UC-20 | USER JOINS A PRIVATE FRIENDLY MATCH | |
 | - | - | - |
@@ -354,7 +356,7 @@
 | | 1 | If the user enters incorrect data, the system will not grant access to the match and will prompt them to enter valid data. |
 | | 2 | In case the match is occupied while the user is joining, the system must reject the registration. |
 
-#### UC-21 EDIT TEAM FORMATION
+## UC-21 EDIT TEAM FORMATION
 
 | UC-21 | EDIT TEAM FORMATION | |
 | - | - | - |
@@ -370,7 +372,7 @@
 | **Exceptions** | \# | **Action (Actor)** |
 | | 4.1 | In case the pre-match countdown timer expires before the user confirms, the system automatically falls back to the user's default team ([UC-11](#uc-11-create-default-team)). |
 
-#### UC-22 LEAVE A LEAGUE
+## UC-22 LEAVE A LEAGUE
 
 | UC-22 | LEAVE A LEAGUE | |
 | - | - | - |
@@ -387,7 +389,7 @@
 | | 2.1 | In case the user cancels the confirmation dialog, the system must abort the operation. |
 | | 4.1 | In case the league creator starts the league before the exit is processed, the system denies leaving and notifies the user that the tournament is active. |
 
-#### UC-23 CANCEL LEAGUE
+## UC-23 CANCEL LEAGUE
 
 | UC-23 | CANCEL LEAGUE | |
 | - | - | - |
@@ -403,7 +405,7 @@
 | **Exceptions** | \# | **Action (Actor)** |
 | | 3.1 | In case the user cancels the confirmation dialog, the system aborts the operation and returns to the league panel. |
 
-#### UC-24 LEAVE A FRIENDLY MATCH
+## UC-24 LEAVE A FRIENDLY MATCH
 
 | UC-24 | LEAVE A FRIENDLY MATCH | |
 | - | - | - |
@@ -420,7 +422,7 @@
 | | 2.1 | In case the user cancels the confirmation dialog, the system must abort the operation. |
 | | 4.1 | In case the match creator starts the match before the exit is processed, the system denies leaving and notifies the user that the match is active. |
 
-#### UC-25 CANCEL FRIENDLY MATCH
+## UC-25 CANCEL FRIENDLY MATCH
 
 | UC-25 | CANCEL FRIENDLY MATCH | |
 | - | - | - |
@@ -436,7 +438,7 @@
 | **Exceptions** | \# | **Action (Actor)** |
 | | 3.1 | In case the user cancels the confirmation dialog, the system aborts the operation and returns to the match panel. |
 
-#### UC-26 START A LEAGUE
+## UC-26 START A LEAGUE
 
 | UC-26 | START A LEAGUE | |
 | - | - | - |
@@ -451,7 +453,7 @@
 | **Exceptions** | \# | **Action (Actor)** |
 | | \- | None |
 
-#### UC-27 START A FRIENDLY MATCH
+## UC-27 START A FRIENDLY MATCH
 
 | UC-27 | START A FRIENDLY MATCH | |
 | - | - | - |
@@ -465,7 +467,7 @@
 | **Exceptions** | \# | **Action (Actor)** |
 | | \- | None |
 
-#### UC-28 LEAVE A MATCH
+## UC-28 LEAVE A MATCH
 
 | UC-28 | LEAVE A MATCH | |
 | - | - | - |
@@ -479,7 +481,7 @@
 | **Exceptions** | \# | **Action (Actor)** |
 | | \- | None |
 
-#### UC-29 NAVIGATE CURRENT LEAGUE
+## UC-29 NAVIGATE CURRENT LEAGUE
 
 | UC-29 | NAVIGATE CURRENT LEAGUE | |
 | - | - | - |
@@ -495,7 +497,7 @@
 | **Exceptions** | \# | **Action (Actor)** |
 | | 2.1 | In case the selected league has been cancelled or no longer exists, the system displays an error message and redirects the user to the home screen. |
 
-#### UC-30 SPECTATE A MATCH
+## UC-30 SPECTATE A MATCH
 
 | UC-30 | SPECTATE A MATCH | |
 | - | - | - |
@@ -510,7 +512,7 @@
 | **Exceptions** | \# | **Action (Actor)** |
 | | 2.1 | In case the selected match ends right before the spectator successfully connects, the system redirects the user to the final match results screen. |
 
-#### UC-31 USER "RE-ENTERS" A MATCH
+## UC-31 USER "RE-ENTERS" A MATCH
 
 | UC-31 | USER "RE-ENTERS" A MATCH | |
 | - | - | - |
@@ -525,7 +527,7 @@
 | **Exceptions** | \# | **Action (Actor)** |
 | | \- | **Modified**:  was the response to a precondition. |
 
-#### UC-32 CHANGE LIVE BEHAVIOR
+## UC-32 CHANGE LIVE BEHAVIOR
 
 | UC-32 | CHANGE LIVE BEHAVIOR | |
 | - | - | - |
@@ -541,7 +543,7 @@
 | **Exceptions** | \# | **Action (Actor)** |
 | | 3.1 | If the match ends exactly before the change is confirmed, the system aborts the operation and notifies the user. |
 
-#### UC-33 CALL FOR A SUBSTITUTION
+## UC-33 CALL FOR A SUBSTITUTION
 
 | UC-33 | CALL FOR A SUBSTITUTION | |
 | - | - | - |
@@ -559,7 +561,7 @@
 | | 3.1 | If the user cancels the substitutions, the system will abort the operation. |
 | | 4.1 | If the number of players does not match the number of substitutes for the substitution, the system will prompt the user to select the correct number of players. |
 
-#### UC-34 USER CONSULTS THE RESULTS OF MATCHES
+## UC-34 USER CONSULTS THE RESULTS OF MATCHES
 
 | UC-34 | USER CONSULTS THE RESULTS OF MATCHES | |
 | - | - | - |
@@ -574,7 +576,7 @@
 | **Exceptions** | \# | **Action (Actor)** |
 | | 2.1 | In case the user has no recorded matches yet, the system displays a message indicating that the play history is currently empty. |
 
-#### UC-35 NAVIGATE GLOBAL RANKING
+## UC-35 NAVIGATE GLOBAL RANKING
 
 | UC-35 | NAVIGATE GLOBAL RANKING | |
 | - | - | - |
