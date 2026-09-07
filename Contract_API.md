@@ -18,7 +18,6 @@
 * [League Table Entry](#league_table_entry)
 * [League](#league)
 * [League Detailed](#leaguedetailed)
-* [Match](#match)
 
 #### Paths
 
@@ -79,10 +78,10 @@
 
 ### Team
 
-* club: Club
-* players: (Player, Player, Player)
-* behaviors: (Behavior, Behavior, Behavior)
-* substitutes: (Player, Player, Player)
+* club: [Club](#club)
+* players: ([Player](#player), [Player](#player), [Player](#player))
+* behaviors: ([Behavior](#behavior), [Behavior](#behavior), [Behavior](#behavior))
+* substitutes: ([Player](#player), [Player](#player), [Player](#player))
 * line\_up: "1-1-1" | "2-1" | "1-2"
 
 ### Coordinates
@@ -98,8 +97,8 @@
 ### Match
 
 * match\_id: number
-* local: Club
-* visitor: Club
+* local: [Club](#club)
+* visitor: [Club](#club)
 * local\_goals: number
 * visitor\_goals: number
 * time\_left: number
@@ -108,18 +107,18 @@
 ### MatchDetailed
 
 * match\_id: number
-* local: Team
-* visitor: Team
+* local: [Team](#team)
+* visitor: [Team](#team)
 * local\_goals: number
 * visitor\_goals: number
-* local\_coords: (Coordinates, Coordinates, Coordinates)
-* visitor\_coords: (Coordinates, Coordinates, Coordinates)
-* ball: Coordinates
+* local\_coords: ([Coordinates](#coordinates), [Coordinates](#coordinates), [Coordinates](#coordinates))
+* visitor\_coords: ([Coordinates](#coordinates), [Coordinates](#coordinates), [Coordinates](#coordinates))
+* ball: [Coordinates](#coordinates)
 * time: number
 * time\_left: number
 * status: "pending" | "in\_progress" | "finished"
 
-### League\_table\_entry
+### League_table_entry
 
 * club\_name: string
 * goals\_scored: number
@@ -132,7 +131,7 @@
 * is\_private: boolean
 * is\_friendly: boolean
 * name: string
-* match: Match
+* match: [Match](#match)
 * clubs\_count: number
 * max\_clubs: number
 * result: number
@@ -144,10 +143,10 @@
 * league\_id: number
 * is\_private: boolean
 * name: string
-* creator: Club
-* clubs: Club\[\]
-* matches: Match\[\]
-* table: list\[League\_table\_entry\]
+* creator: [Club](#club)
+* clubs: list[[Club](#club)]
+* matches: list[[Match](#match)]
+* table: list[[League_table_entry](#league_table_entry)]
 * max\_clubs: number
 * time: number
 * status: "pending" | "in\_progress" | "finished"
@@ -158,165 +157,139 @@
 
 ### /users/me
 
-    GET:
-        returns:
-            User
-    PUT:
-        asks:
-            Club (without id)
-        returns:
-            User
-
+* **GET**:
+  * **returns**: [User](#user)
+* **PUT**:
+  * **asks**: [Club](#club) (without id)
+  * **returns**: [User](#user)
+  
 ### /players/
 
-    GET:
-        returns:
-            list[Player]
-    POST:
-        asks:
-            Player (without id)
-        returns:
-            Player
+* **GET**:
+  * **returns**: list[[Player](#player)]
+* **POST**:
+  * **asks**: [Player](#player) (without id)
+  * **returns**: [Player](#player)
 
 ### /players/{player_id}/
 
-    GET:
-        returns:
-            Player
-    DELETE:
-        only method
+* **GET**:
+  * **returns**: [Player](#player)
+* **DELETE**:
+  * only method
 
 ### /behaviors/
 
-    GET:
-        returns:
-            list[Behavior]
-    POST:
-        asks:
-            optional[Behavior]  (without id)
-        returns:
-            Behavior
+* **GET**:
+  * **returns**: list[[Behavior](#behavior)]
+* **POST**:
+  * **asks**: optional[[Behavior](#behavior)] (without id)
+  * **returns**: [Behavior](#behavior)
 
 ### /behaviors/{behavior_id}/
 
-    GET:
-        returns:
-            Behavior
-    PUT:
-        asks:
-            optional[Behavior] (without id)
-        returns:
-            Behavior
-    DELETE:
-        only method
+* **GET**:
+  * **returns**: [Behavior](#behavior)
+* **PUT**:
+  * **asks**: optional[[Behavior](#behavior)] (without id)
+  * **returns**: [Behavior](#behavior)
+* **DELETE**:
+  * only method
 
 ### /team/
 
-    GET:
-        returns:
-            Team
-    PUT:
-        asks:
-            optional[Team] (without Club)
-        returns:
-            Team
+* **GET**:
+  * **returns**: [Team](#team)
+* **PUT**:
+  * **asks**: optional[[Team](#team)] (without [Club](#club))
+  * **returns**: [Team](#team)
 
 ### /leagues/
 
-    GET:
-        parameters:
-            status: "pending" | "in\_progress" | "finished"
-            friendlies: boolean
-            leagues: boolean
-        returns:
-            list[League]
-    POST:
-        asks:
-            name: string
-            password?: string
-            is\_friendly: boolean
-            max\_clubs: number
-            time: number
-        returns:
-            LeagueDetailed
+* **GET**:
+  * **parameters**:
+    * status: "pending" | "in\_progress" | "finished"
+    * friendlies: boolean
+    * leagues: boolean
+  * **returns**: list[[League](#league)]
+* **POST**:
+  * **asks**:
+    * name: string
+    * password?: string
+    * is\_friendly: boolean
+    * max\_clubs: number
+    * time: number
+  * **returns**: [LeagueDetailed](#leaguedetailed)
 
 ### /leagues/{league_id}/
 
-    GET:
-        returns:
-            LeagueDetailed
-    DELETE:
-        only method
+* **GET**:
+  * **returns**: [LeagueDetailed](#leaguedetailed)
+* **DELETE**:
+  * only method
 
 ### /leagues/{league_id}/join
 
-    POST:
-        asks:
-            password?: string
-        returns:
-            LeagueDetailed
+* **POST**:
+  * **asks**:
+    * password?: string
+  * **returns**: [LeagueDetailed](#leaguedetailed)
 
 ### /leagues/{league_id}/leave
 
-    POST:
-        only method
+* **POST**:
+  * only method
 
 ### /leagues/{league_id}/start
 
-    POST:
-        only method
+* **POST**:
+  * only method
 
 ### /leagues/{league_id}/team
 
-    GET:
-        returns:
-            Team
-    POST:
-        asks:
-            optional[Team] (without Club)
-        returns:
-            Team
+* **GET**:
+  * **returns**: [Team](#team)
+* **POST**:
+  * **asks**: optional[[Team](#team)] (without [Club](#club))
+  * **returns**: [Team](#team)
 
 ### /leagues/{league_id}/matches/{match_id}/
 
-    GET:
-        returns:
-            MatchDetailed
+* **GET**:
+  * **returns**: [MatchDetailed](#matchdetailed)
 
 ### /history/
 
-    GET:
-        returns:
-            list[Match | League]
+* **GET**:
+  * **returns**: list[[Match](#match) | [League](#league)]
 
 ### /classification/
 
-    GET:
-        returns:
-            list[Classification]
+* **GET**:
+  * **returns**: list[[Classification](#classification)]
 
 ### /auth/register/
 
-    POST:
-        asks:
-            username: string
-            name: string
-            password: string
-        returns:
-            token: string
-            User
+* **POST**:
+  * **asks**:
+    * username: string
+    * name: string
+    * password: string
+  * **returns**:
+    * token: string
+    * [User](#user)
 
 ### /auth/login/
 
-    POST:
-        asks:
-            username:string
-            password: string
-        returns:
-            token: string
-            User
+* **POST**:
+  * **asks**:
+    * username: string
+    * password: string
+  * **returns**:
+    * token: string
+    * [User](#user)
 
 ### /auth/logout/
 
-    POST:
-        only method
+* **POST**:
+  * only method
