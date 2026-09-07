@@ -24,7 +24,7 @@
 * [UC-18: User joins a private league](#uc-18-user-joins-a-private-league)
 * [UC-19: User joins a public friendly match](#uc-19-user-joins-a-public-friendly-match)
 * [UC-20: User joins a private friendly match](#uc-20-user-joins-a-private-friendly-match)
-* [UC-21: Edit team formation](#uc-21-edit-team-formation)
+* [UC-21: Edit team lineup](#uc-21-edit-team-lineup)
 * [UC-22: Leave league](#uc-22-leave-a-league)
 * [UC-23: Cancel league](#uc-23-cancel-league)
 * [UC-24: Leave friendly match](#uc-24-leave-a-friendly-match)
@@ -356,19 +356,19 @@
 | | 1 | If the user enters incorrect data, the system will not grant access to the match and will prompt them to enter valid data. |
 | | 2 | In case the match is occupied while the user is joining, the system must reject the registration. |
 
-## UC-21 EDIT TEAM FORMATION
+## UC-21 EDIT TEAM LINEUP 
 
-| UC-21 | EDIT TEAM FORMATION | |
+| UC-21 | EDIT TEAM LINEUP | |
 | - | - | - |
-| **Description** | The user edits their team formation to join a league or to start a friendly match. | |
+| **Description** | The user edits their team lineup to join a league or to start a friendly match. | |
 | **Actors** | USER | |
 | **Preconditions** | The user has a default team configured ([UC-11](#uc-11-create-default-team)) and has entered a pre-match lobby. | |
 | **Post-conditions** | The custom lineup for the specific match is saved. | |
 | **Main Success Scenario** | **\#** | **Action (Actor)** |
-| | 1 | The user accesses the pre-match formation interface. |
+| | 1 | The user accesses the pre-match lineup interface. |
 | | 2 | The user selects the starting players and custom behaviors for the match. |
 | | 3 | The user confirms the selection. |
-| | 4 | The system validates the lineup and applies the formation to the upcoming match. |
+| | 4 | The system validates the lineup and applies the lineup to the upcoming match. |
 | **Exceptions** | \# | **Action (Actor)** |
 | | 4.1 | In case the pre-match countdown timer expires before the user confirms, the system automatically falls back to the user's default team ([UC-11](#uc-11-create-default-team)). |
 
