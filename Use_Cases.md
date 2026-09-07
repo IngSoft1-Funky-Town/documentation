@@ -20,10 +20,10 @@
 * [UC-14: Create friendly match](#uc-14-create-friendly-match)
 * [UC-15: Navigate friendly matches](#uc-15-navigate-friendly-matches)
 * [UC-16: Navigate current activity](#uc-16-navigate-current-activity)
-* [UC-17: The user joins a public league](#uc-17-the-user-joins-a-public-league)
-* [UC-18: The user joins a private league](#uc-18-the-user-joins-a-private-league)
-* [UC-19: The user joins a public friendly match](#uc-19-the-user-joins-a-public-friendly-match)
-* [UC-20: The user joins a private friendly match](#uc-20-the-user-joins-a-private-friendly-match)
+* [UC-17: Join a public league](#uc-17-join-a-public-league)
+* [UC-18: Join a private league](#uc-18-join-a-private-league)
+* [UC-19: Join a public friendly match](#uc-19-join-a-public-friendly-match)
+* [UC-20: Join a private friendly match](#uc-20-join-a-private-friendly-match)
 * [UC-21: Configure team for upcoming match](#uc-21-configure-team-for-upcoming-match)
 * [UC-22: Leave a league](#uc-22-leave-a-league)
 * [UC-23: Cancel league](#uc-23-cancel-league)
@@ -34,10 +34,10 @@
 * [UC-28: Leave the match view](#uc-28-leave-the-match-view)
 * [UC-29: Navigate league](#uc-29-navigate-league)
 * [UC-30: Spectate a match](#uc-30-spectate-a-match)
-* [UC-31: The user “re-enters” a match](#uc-31-the-user-re-enters-a-match)
+* [UC-31: “Re-enter” a match](#uc-31-re-enter-a-match)
 * [UC-32: Change live behavior](#uc-32-change-live-behavior)
 * [UC-33: Call for a substitution](#uc-33-call-for-a-substitution)
-* [UC-34: The user consults the results of the match](#uc-34-the-user-consults-the-results-of-the-match)
+* [UC-34: Consult results of a match](#uc-34-consult-the-results-of-a-match)
 * [UC-35: Navigate global ranking](#uc-35-navigate-global-ranking)
 
 ---
@@ -295,9 +295,9 @@
 | **Exceptions** | \# | **Action (Actor)** |
 | | 2.1 | In case there are no current matches or leagues, the system must display a message indicating the list is currently empty. |
 
-## UC-17 THE USER JOINS A PUBLIC LEAGUE
+## UC-17 JOIN A PUBLIC LEAGUE
 
-| UC-17 | THE USER JOINS A PUBLIC LEAGUE | |
+| UC-17 | JOIN A PUBLIC LEAGUE | |
 | - | - | - |
 | **Description** | The user joins a public league. | |
 | **Actors** | User | |
@@ -311,9 +311,9 @@
 | | 3.1 | In case the league was started by the creator while the user was joining, the system must reject the registration. |
 | | 3.2 | In case the league reaches its maximum capacity before the user joins, the system displays an error message. |
 
-## UC-18 THE USER JOINS A PRIVATE LEAGUE
+## UC-18 JOIN A PRIVATE LEAGUE
 
-| UC-18 | THE USER JOINS A PRIVATE LEAGUE | |
+| UC-18 | JOIN A PRIVATE LEAGUE | |
 | - | - | - |
 | **Description** | The user joins a private league. | |
 | **Actors** | User | |
@@ -328,9 +328,9 @@
 | | 2.1 | In case the league reaches its maximum capacity before the user joins, the system displays an error message. |
 | | 2.2 | In case the league was started by the creator while the user was joining, the system must reject the registration. |
 
-## UC-19 THE USER JOINS A PUBLIC FRIENDLY MATCH
+## UC-19 JOIN A PUBLIC FRIENDLY MATCH
 
-| UC-19 | THE USER JOINS A FRIENDLY MATCH | |
+| UC-19 | JOIN A PUBLIC FRIENDLY MATCH | |
 | - | - | - |
 | **Description** | The user joins a public friendly match. | |
 | **Actors** | User | |
@@ -343,9 +343,9 @@
 | **Exceptions** | \# | **Action (Actor)** |
 | | 3.3 | In case the match was occupied while the user was joining, the system must reject the registration. |
 
-## UC-20 THE USER JOINS A PRIVATE FRIENDLY MATCH
+## UC-20 JOIN A PRIVATE FRIENDLY MATCH
 
-| UC-20 | THE USER JOINS A PRIVATE FRIENDLY MATCH | |
+| UC-20 | JOIN A PRIVATE FRIENDLY MATCH | |
 | - | - | - |
 | **Description** | The user joins a private friendly match. | |
 | **Actors** | User | |
@@ -515,9 +515,9 @@
 | **Exceptions** | \# | **Action (Actor)** |
 | | 2.1 | In case the selected match ends right before the spectator successfully connects, the system redirects the user to the final match results screen. |
 
-## UC-31 THE USER “RE-ENTERS” A MATCH
+## UC-31 “RE-ENTER” A MATCH
 
-| UC-31 | THE USER “RE-ENTERS” A MATCH | |
+| UC-31 | “RE-ENTER” A MATCH | |
 | - | - | - |
 | **Description** | The user "re-enters" a game they had previously left. | |
 | **Actors** | User | |
@@ -564,9 +564,9 @@
 | | 3.1 | If the user cancels the substitutions, the system will abort the operation. |
 | | 4.1 | If the number of players does not match the number of substitutes for the substitution, the system will prompt the user to select the correct number of players. |
 
-## UC-34  The user consults the results of the match
+## UC-34 CONSULT THE RESULTS OF A MATCH
 
-| UC-34 | The user consults the results of the match | |
+| UC-34 | CONSULT THE RESULTS OF A MATCH | |
 | - | - | - |
 | **Description** | The user views a summary list of their previously played matches, including the outcome, match type, opponent, and date. | |
 | **Actors** | User | |
