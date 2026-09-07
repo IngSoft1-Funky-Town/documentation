@@ -18,6 +18,7 @@
 * [League Table Entry](#league_table_entry)
 * [League](#league)
 * [League Detailed](#leaguedetailed)
+* [Friendly Match](#friendlymatch)
 
 #### Paths
 
@@ -34,6 +35,12 @@
 * [/leagues/{league_id}/start](#leaguesleague_idstart)
 * [/leagues/{league_id}/team](#leaguesleague_idteam)
 * [/leagues/{league_id}/matches/{match_id}/](#leaguesleague_idmatchesmatch_id)
+* [/friendlymatch/](#friendlymatch-1)
+* [/friendlymatch/{friendly_id}/](#friendlymatchfriendly_id)
+* [/friendlymatch/{friendly_id}/join](#friendlymatchfriendly_idjoin)
+* [/friendlymatch/{friendly_id}/leave](#friendlymatchfriendly_idleave)
+* [/friendlymatch/{friendly_id}/start](#friendlymatchfriendly_idstart)
+* [/friendlymatch/{friendly_id}/team](#friendlymatchfriendly_idteam)
 * [/history/](#history)
 * [/classification/](#classification-1)
 * [/auth/register/](#authregister)
@@ -129,7 +136,6 @@
 
 * league\_id: number
 * is\_private: boolean
-* is\_friendly: boolean
 * name: string
 * match: [Match](#match)
 * clubs\_count: number
@@ -148,6 +154,16 @@
 * matches: list[[Match](#match)]
 * table: list[[League_table_entry](#league_table_entry)]
 * max\_clubs: number
+* time: number
+* status: "pending" | "in\_progress" | "finished"
+
+### FriendlyMatch
+
+* friendly\_id: number
+* is\_private: boolean
+* name: string
+* match: [Match](#match)
+* result: number
 * time: number
 * status: "pending" | "in\_progress" | "finished"
 
@@ -258,6 +274,51 @@
 * **GET**:
   * **returns**: [MatchDetailed](#matchdetailed)
 
+### /friendlymatch/
+
+* **GET**:
+  * **parameters**:
+    * status: "pending" | "in\_progress" | "finished"
+  * **returns**: list[[FriendlyMatch](#friendlymatch)]
+* **POST**:
+  * **asks**:
+    * name: string
+    * password?: string
+    * time: number
+  * **returns**: [FriendlyMatch](#friendlymatch)
+
+### /friendlymatch/{friendly_id}/
+
+* **GET**:
+  * **returns**: [FriendlyMatch](#friendlymatch)
+* **DELETE**:
+  * only method
+
+### /friendlymatch/{friendly_id}/join
+
+* **POST**:
+  * **asks**:
+    * password?: string
+  * **returns**: [FriendlyMatch](#friendlymatch)
+
+### /friendlymatch/{friendly_id}/leave
+
+* **POST**:
+  * only method
+
+### /friendlymatch/{friendly_id}/start
+
+* **POST**:
+  * only method
+
+### /friendlymatch/{friendly_id}/team
+
+* **GET**:
+  * **returns**: [Team](#team)
+* **PUT**:
+  * **asks**: optional[[Team](#team)] (without [Club](#club))
+  * **returns**: [Team](#team)
+
 ### /history/
 
 * **GET**:
@@ -334,146 +395,161 @@
 
 * <a id="leaguesadd"></a>**leagues:add** *(SERVER -> CLIENT)*:
   * Esquemas relacionados: [League](#league)
-  ```jsonc
+
+```json
   {
     "type": "leagues:add",
     "league": League
   }
-  ```
+```
 
 > *Update match completo*
 
 * <a id="leaguesupdatematch"></a>**leagues:update:match** *(SERVER -> CLIENT)*:
   * Esquemas relacionados: [Match](#match)
-  ```jsonc
+
+```json
   {
     "type": "leagues:update:match",
     "league_id": number,
     "match": Match
   }
-  ```
+```
 
 > *Update match en vivo*
 
 * <a id="leaguesupdatematchgoals"></a>**leagues:update:match:goals** *(SERVER -> CLIENT)*:
-  ```jsonc
+
+```json
   {
     "type": "leagues:update:match:goals",
     "league_id": number,
     "local_goals": number,
     "visitor_goals": number
   }
-  ```
+```
 
 * <a id="leaguesupdatematchstatus"></a>**leagues:update:match:status** *(SERVER -> CLIENT)*:
-  ```jsonc
+
+```json
   {
     "type": "leagues:update:match:status",
     "league_id": number,
     "status": "pending" | "in_progress" | "finished"
   }
-  ```
+```
 
 > *Update league*
 
 * <a id="leaguesupdatestatus"></a>**leagues:update:status** *(SERVER -> CLIENT)*:
-  ```jsonc
+
+```json
   {
     "type": "leagues:update:status",
     "league_id": number,
     "result": number,
     "status": "pending" | "in_progress" | "finished"
   }
-  ```
+```
 
 * <a id="leaguesupdateclubs_count"></a>**leagues:update:clubs_count** *(SERVER -> CLIENT)*:
-  ```jsonc
+
+```json
   {
     "type": "leagues:update:clubs_count",
     "league_id": number,
     "clubs_count": number
   }
-  ```
+```
 
 * <a id="leaguesdelete"></a>**leagues:delete** *(SERVER -> CLIENT)*:
-  ```jsonc
+
+```json
   {
     "type": "leagues:delete",
     "league_id": number
   }
-  ```
+```
 
 ### League Screen
 
 * <a id="leaguestatus"></a>**league:status** *(SERVER -> CLIENT)*:
-  ```jsonc
+
+```json
   {
     "type": "league:status",
     "status": "pending" | "in_progress" | "finished"
   }
-  ```
+```
 
 > *Pending league*
 
 * <a id="leaguedelete"></a>**league:delete** *(SERVER -> CLIENT)*:
-  ```jsonc
+
+```json
   {
     "type": "league:delete"
   }
-  ```
+```
 
 * <a id="leagueclubadd"></a>**league:club:add** *(SERVER -> CLIENT)*:
   * Esquemas relacionados: [Club](#club)
-  ```jsonc
+
+```json
   {
     "type": "league:club:add",
     "club": Club
   }
-  ```
+```
 
 * <a id="leagueclubdelete"></a>**league:club:delete** *(SERVER -> CLIENT)*:
-  ```jsonc
+
+```json
   {
     "type": "league:club:delete",
     "club_id": number
   }
-  ```
+```
 
 > *In-progress league*
 
 * <a id="leaguetable"></a>**league:table** *(SERVER -> CLIENT)*:
   * Esquemas relacionados: [League Table Entry](#league_table_entry)
-  ```jsonc
+
+```json
   {
     "type": "league:table",
     "table": list[League_table_entry]
   }
-  ```
+```
 
 * <a id="leaguematchgoals"></a>**league:match:goals** *(SERVER -> CLIENT)*:
-  ```jsonc
+
+```json
   {
     "type": "league:match:goals",
     "match_id": number,
     "local_goals": number,
     "visitor_goals": number
   }
-  ```
+```
 
 * <a id="leaguematchstatus"></a>**league:match:status** *(SERVER -> CLIENT)*:
-  ```jsonc
+
+```json
   {
     "type": "league:match:status",
     "match_id": number,
     "status": "pending" | "in_progress" | "finished"
   }
-  ```
+```
 
 ### Match Screen
 
 * <a id="matchupdate"></a>**match:update** *(SERVER -> CLIENT)*:
   * Esquemas relacionados: [Coordinates](#coordinates)
-  ```jsonc
+
+```json
   {
     "type": "match:update",
     "local_coords": (Coordinates, Coordinates, Coordinates), // players positions
@@ -481,49 +557,53 @@
     "ball": Coordinates,
     "time_left": number
   }
-  ```
+```
 
 * <a id="matchgoals"></a>**match:goals** *(SERVER -> CLIENT)*:
-  ```jsonc
+
+```json
   {
     "type": "match:goals",
     "local_goals": number,
     "visitor_goals": number
   }
-  ```
+```
 
 > *Cambia a jugadores titulares y suplentes*
 
 * <a id="matchbreak"></a>**match:break** *(SERVER -> CLIENT)*:
-  ```jsonc
+
+```json
   {
     "type": "match:break",
     "local": (player_id, player_id, player_id),
     "visitor": (player_id, player_id, player_id)
   }
-  ```
+```
 
 * <a id="clientmatchsubstitutes"></a>**client:match:substitutes** *(CLIENT -> SERVER)*:
-  ```jsonc
+
+```json
   {
     "type": "client:match:substitutes",
     "players": (player_id, player_id, player_id)
   }
-  ```
+```
 
 * <a id="clientmatchbehaviors"></a>**client:match:behaviors** *(CLIENT -> SERVER)*:
-  ```jsonc
+
+```json
   {
     "type": "client:match:behaviors",
     "behaviors": (behavior_id, behavior_id, behavior_id)
   }
-  ```
+```
 
 * <a id="matchstatus"></a>**match:status** *(SERVER -> CLIENT)*:
-  ```jsonc
+
+```json
   {
     "type": "match:status",
     "status": "pending" | "in_progress" | "finished"
   }
-  ```
-
+```

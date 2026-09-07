@@ -34,7 +34,7 @@
 * [UC-28: Leave the match view](#uc-28-leave-the-match-view)
 * [UC-29: Navigate league](#uc-29-navigate-league)
 * [UC-30: Spectate a match](#uc-30-spectate-a-match)
-* [UC-31: “Re-enter” a match](#uc-31-re-enter-a-match)
+* [UC-31: Re-enter a current match](#uc-31-re-enter-a-current-match)
 * [UC-32: Change live behavior](#uc-32-change-live-behavior)
 * [UC-33: Call for a substitution](#uc-33-call-for-a-substitution)
 * [UC-34: Consult results of a match](#uc-34-consult-the-results-of-a-match)
@@ -155,7 +155,7 @@
 | **Description** | The user creates a behavior | |
 | **Actors** | USER | |
 | **Preconditions** | The user is authenticated and has access to the behavior management interface. | |
-| **Postconditions** | A new behavior is added to the user’s behavior list. | |
+| **Postconditions** | A new behavior is added to the user's behavior list. | |
 | **Main Success Scenario** | **\#** | **Action (Actor)** |
 | | 1 | The user selects the option to create a new behavior. |
 | | 2 | The user inputs the required fields to create a behavior (name, code) |
@@ -172,7 +172,7 @@
 | **Description** | The user edits a behavior. | |
 | **Actors** | USER | |
 | **Preconditions** | The user has at least one existing behavior created ([UC-08](#uc-08-create-behavior)). | |
-| **Postconditions** | The behavior’s modified parameters are updated in the database. | |
+| **Postconditions** | The behavior's modified parameters are updated in the database. | |
 | **Main Success Scenario** | **\#** | **Action (Actor)** |
 | | 1 | The user selects an existing behavior to edit from their list. |
 | | 2 | The user modifies the desired fields of the behavior (name, code) |
@@ -189,7 +189,7 @@
 | **Description** | The user removes permanently a selected behavior from their list. | |
 | **Actors** | USER | |
 | **Preconditions** | The user has at least one existing behavior that is not associated with the default team (or is not in use). | |
-| **Postconditions** | The selected behavior is permanently removed from the user’s behavior list. | |
+| **Postconditions** | The selected behavior is permanently removed from the user's behavior list. | |
 | **Main Success Scenario** | **\#** | **Action (Actor)** |
 | | 1 | The user selects an existing behavior to delete from their list. |
 | | 2 | The system prompts the user with a confirmation dialog to prevent accidental deletion. |
@@ -230,7 +230,7 @@
 | | 1 | The user selects the option to create a new league.. |
 | | 2 | The user inputs the required fields to create a league (name,max\_users,match\_time) |
 | | 3 | The system validates the input, persists the new league, and confirms successful creation. |
-| | 4 | The system displays the new league in the leagues’ list. |
+| | 4 | The system displays the new league in the leagues' list. |
 | **Exceptions** | \# | **Action (Actor)** |
 | | 3.1 | In case the user input enters the data in an incorrect format, the system must display a validation error and prompts for correction. |
 | | 3.2 | In case required fields are missing, the system must display a validation error and prompts for completion. |
@@ -288,7 +288,7 @@
 | **Description** | The user browses and lists their current match/league activity. | |
 | **Actors** | USER | |
 | **Preconditions** | The user is authenticated and has access to the current activity list interface. | |
-| **Post-conditions** | The system successfully displays a list of the user’s current activity.. | |
+| **Post-conditions** | The system successfully displays a list of the user's current activity.. | |
 | **Main Success Scenario** | **\#** | **Action (Actor)** |
 | | 1 | The user selects the option to see current activity. |
 | | 2 | The system displays a list of all current matches/leagues in which the user is involved. |
@@ -302,7 +302,7 @@
 | **Description** | The user joins a public league. | |
 | **Actors** | User | |
 | **Preconditions** | The user has a default team ([UC-11](#uc-11-create-default-team)) and is navigating in the league list ([UC-13](#uc-13-navigate-leagues)). | |
-| **Post-conditions** | The user’s club appears in the public league interface and is also displayed in the “current activity” section. | |
+| **Post-conditions** | The user's club appears in the public league interface and is also displayed in the "current activity" section. | |
 | **Main Success Scenario** | **\#** | **Action (Actor)** |
 | | 1 | The user selects an available public league from the list. |
 | | 2 | The user clicks the option to join the league. |
@@ -318,7 +318,7 @@
 | **Description** | The user joins a private league. | |
 | **Actors** | User | |
 | **Preconditions** | The user has a default team ([UC-11](#uc-11-create-default-team)) and is navigating in the league list ([UC-13](#uc-13-navigate-leagues)). | |
-| **Post-conditions** | The user's club appears in the private league interface and is also displayed in the “current activity” section. | |
+| **Post-conditions** | The user's club appears in the private league interface and is also displayed in the "current activity" section. | |
 | **Main Success Scenario** | **\#** | **Action (Actor)** |
 | | 1 | The user selects a private league and enters the league password. |
 | | 2 | The system registers the user's club into the league and displays a confirmation message. |
@@ -335,7 +335,7 @@
 | **Description** | The user joins a public friendly match. | |
 | **Actors** | User | |
 | **Preconditions** | The user has a default team ([UC-11](#uc-11-create-default-team)) and is navigating in the friendly matches list ([UC-15](#uc-15-navigate-friendly-matches)). | |
-| **Post-conditions** | The user’s club appears in the friendly match interface and is also displayed in the “current activity” section. | |
+| **Post-conditions** | The user's club appears in the friendly match interface and is also displayed in the "current activity" section. | |
 | **Main Success Scenario** | **\#** | **Action (Actor)** |
 | | 1 | The user selects an available public friendly match from the list. |
 | | 2 | The user clicks the option to join the friendly match. |
@@ -350,7 +350,7 @@
 | **Description** | The user joins a private friendly match. | |
 | **Actors** | User | |
 | **Preconditions** | The user has a default team ([UC-11](#uc-11-create-default-team)) and is navigating in the friendly matches list ([UC-15](#uc-15-navigate-friendly-matches)). | |
-| **Post-conditions** | The user's club appears in the private friendly match interface and is also displayed in the “current activity” section. | |
+| **Post-conditions** | The user's club appears in the private friendly match interface and is also displayed in the "current activity" section. | |
 | **Main Success Scenario** | **\#** | **Action (Actor)** |
 | | 1 | The user selects a private friendly match and enters the match password. |
 | | 2 | The system registers the user's club into the match and displays a confirmation message. |
@@ -416,7 +416,7 @@
 | **Description** | The user removes their club from a friendly match that has not yet started. | |
 | **Actors** | User | |
 | **Preconditions** | The user joined a public or private match and it has not yet started. | |
-| **Post-conditions** | The user's club is removed from the match and the match re-appears in the “friendly match” list. | |
+| **Post-conditions** | The user's club is removed from the match and the match re-appears in the "friendly match" list. | |
 | **Main Success Scenario** | **\#** | **Action (Actor)** |
 | | 1 | The user selects the button to leave the match. |
 | | 2 | The system displays a confirmation dialog box to prevent the user from accidentally leaving. |
@@ -449,11 +449,11 @@
 | **Description** | The league creator starts the tournament, locking participants and generating the fixture. | |
 | **Actors** | USER | |
 | **Preconditions** | The user created the league([UC-12](#uc-12-create-league)), the league has not yet started and has the required number of participants. | |
-| **Post-conditions** | The league starts, appears live in the “current activity” section and disappears from the list of available leagues. | |
+| **Post-conditions** | The league starts, appears live in the "current activity" section and disappears from the list of available leagues. | |
 | **Main Success Scenario** | **\#** | **Action (Actor)** |
 | | 1 | The user navigates to their league management screen and selects the option to start the league. |
 | | 2 | The system generates the fixtures for all registered clubs. |
-| | 3 | The system updates the league status to “in progress”, closes new registrations and displays a successful notification. |
+| | 3 | The system updates the league status to "in progres"�, closes new registrations and displays a successful notification. |
 | **Exceptions** | \# | **Action (Actor)** |
 | | 3.1 | In case one or more users leave the league before it has started (now the league is under the required number of players) the system must deny starting and notify the user that the league has not reached the required number of players. |
 
@@ -464,10 +464,10 @@
 | **Description** | The friendly match creator starts the match. | |
 | **Actors** | USER | |
 | **Preconditions** | The user created the friendly match([UC-14](#uc-14-create-friendly-match)), the match has not yet started and has an opponent. | |
-| **Post-conditions** | The match starts,  appears live in the “current activity” list and disappears from the list of available matches. | |
+| **Post-conditions** | The match starts,  appears live in the "current activity" list and disappears from the list of available matches. | |
 | **Main Success Scenario** | **\#** | **Action (Actor)** |
 | | 1 | The user navigates to their match management screen and selects the option to start the friendly match. |
-| | 2 | The system updates the league status to “in progress”, and displays a successful notification. |
+| | 2 | The system updates the league status to "in progres"�, and displays a successful notification. |
 | **Exceptions** | \# | **Action (Actor)** |
 | | 2.1 | In case the opponent leaves the match before it has started the system must deny starting and notify the user that the match has not reached the required number of players. |
 
@@ -515,9 +515,9 @@
 | **Exceptions** | \# | **Action (Actor)** |
 | | 2.1 | In case the selected match ends right before the spectator successfully connects, the system redirects the user to the final match results screen. |
 
-## UC-31 “RE-ENTER” A MATCH
+## UC-31 RE-ENTER A CURRENT MATCH
 
-| UC-31 | “RE-ENTER” A MATCH | |
+| UC-31 | RE-ENTER A CURRENT MATCH | |
 | - | - | - |
 | **Description** | The user "re-enters" a game they had previously left. | |
 | **Actors** | User | |
@@ -537,12 +537,12 @@
 | **Description** | The user changes the behavior of a first team player live during the match. | |
 | **Actors** | User | |
 | **Preconditions** | The user is in an active live match and has alternative behaviors saved on their profile. | |
-| **Post-conditions** | The selected player’s behavior is updated and applied to the next calculation tick of the game. | |
+| **Post-conditions** | The selected player's behavior is updated and applied to the next calculation tick of the game. | |
 | **Main Success Scenario** | **\#** | **Action (Actor)** |
 | | 1 | The user selects a player currently on the field. |
-| | 2 | The system displays a list of the user’s available behaviors. |
+| | 2 | The system displays a list of the user's available behaviors. |
 | | 3 | The user selects a new behavior and confirms the change. |
-| | 4 | The system updates the player’s active behavior in the match in the next tick and confirms the change. |
+| | 4 | The system updates the player's active behavior in the match in the next tick and confirms the change. |
 | **Exceptions** | \# | **Action (Actor)** |
 | | 3.1 | If the match ends exactly before the change is confirmed, the system aborts the operation and notifies the user. |
 
@@ -553,7 +553,7 @@
 | **Description** | The user requests a live substitution during the cooling break or the half time, involving any number of players from the bench. | |
 | **Actors** | User | |
 | **Preconditions** | The user is in an active match, during the stage of cooling break or halftime. The substitute player cannot have played on the field previously. | |
-| **Post-conditions** | The system updates the team’s lineup for the remaining time of the game. | |
+| **Post-conditions** | The system updates the team's lineup for the remaining time of the game. | |
 | **Main Success Scenario** | **\#** | **Action (Actor)** |
 | | 1 | The user selects one or more players to substitute. |
 | | 2 | The user selects the substitutes who will play. |
