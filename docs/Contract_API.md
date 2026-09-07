@@ -495,7 +495,6 @@
 > *Cambia a jugadores titulares y suplentes*
 
 * <a id="matchbreak"></a>**match:break** *(SERVER -> CLIENT)*:
-  * Esquemas relacionados: [Player](#player)
   ```jsonc
   {
     "type": "match:break",
@@ -505,7 +504,6 @@
   ```
 
 * <a id="clientmatchsubstitutes"></a>**client:match:substitutes** *(CLIENT -> SERVER)*:
-  * Esquemas relacionados: [Player](#player)
   ```jsonc
   {
     "type": "client:match:substitutes",
@@ -514,7 +512,6 @@
   ```
 
 * <a id="clientmatchbehaviors"></a>**client:match:behaviors** *(CLIENT -> SERVER)*:
-  * Esquemas relacionados: [Behavior](#behavior)
   ```jsonc
   {
     "type": "client:match:behaviors",
