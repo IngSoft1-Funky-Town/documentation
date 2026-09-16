@@ -453,7 +453,7 @@
 | **Main Success Scenario** | **\#** | **Action (Actor)** |
 | | 1 | The user navigates to their league management screen and selects the option to start the league. |
 | | 2 | The system generates the fixtures for all registered clubs. |
-| | 3 | The system updates the league status to "in progres"ù, closes new registrations and displays a successful notification. |
+| | 3 | The system updates the league status to "in progress", closes new registrations and displays a successful notification. |
 | **Exceptions** | \# | **Action (Actor)** |
 | | 3.1 | In case one or more users leave the league before it has started (now the league is under the required number of players) the system must deny starting and notify the user that the league has not reached the required number of players. |
 
@@ -467,7 +467,7 @@
 | **Post-conditions** | The match starts,  appears live in the "current activity" list and disappears from the list of available matches. | |
 | **Main Success Scenario** | **\#** | **Action (Actor)** |
 | | 1 | The user navigates to their match management screen and selects the option to start the friendly match. |
-| | 2 | The system updates the league status to "in progres"ù, and displays a successful notification. |
+| | 2 | The system updates the league status to "in progress", and displays a successful notification. |
 | **Exceptions** | \# | **Action (Actor)** |
 | | 2.1 | In case the opponent leaves the match before it has started the system must deny starting and notify the user that the match has not reached the required number of players. |
 
