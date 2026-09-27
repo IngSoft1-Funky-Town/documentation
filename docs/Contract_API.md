@@ -334,7 +334,7 @@
 * **POST**:
   * **asks**:
     * username: string
-    * name: string
+    * email: string
     * password: string
   * **returns**:
     * token: string
@@ -344,7 +344,7 @@
 
 * **POST**:
   * **asks**:
-    * username: string
+    * email: string
     * password: string
   * **returns**:
     * token: string
