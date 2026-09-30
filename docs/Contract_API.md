@@ -34,7 +34,7 @@
 * [/leagues/{league_id}/leave](#leaguesleague_idleave)
 * [/leagues/{league_id}/start](#leaguesleague_idstart)
 * [/leagues/{league_id}/team](#leaguesleague_idteam)
-* [/leagues/{league_id}/matches/{match_id}/](#leaguesleague_idmatchesmatch_id)
+* [/matches/{match_id}/](#matchesmatch_id)
 * [/friendlymatch/](#friendlymatch-1)
 * [/friendlymatch/{friendly_id}/](#friendlymatchfriendly_id)
 * [/friendlymatch/{friendly_id}/join](#friendlymatchfriendly_idjoin)
@@ -269,7 +269,7 @@
   * **asks**: optional[[Team](#team)] (without [Club](#club))
   * **returns**: [Team](#team)
 
-### /leagues/{league_id}/matches/{match_id}/
+### /matches/{match_id}/
 
 * **GET**:
   * **returns**: [MatchDetailed](#matchdetailed)
