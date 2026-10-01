@@ -175,7 +175,7 @@
 
 * **GET**:
   * **returns**: [User](#user)
-* **PUT**:
+* **PATCH**:
   * **asks**: [Club](#club) (without id)
   * **returns**: [User](#user)
   
@@ -206,7 +206,7 @@
 
 * **GET**:
   * **returns**: [Behavior](#behavior)
-* **PUT**:
+* **PATCH**:
   * **asks**: optional[[Behavior](#behavior)] (without id)
   * **returns**: [Behavior](#behavior)
 * **DELETE**:
@@ -216,7 +216,7 @@
 
 * **GET**:
   * **returns**: [Team](#team)
-* **PUT**:
+* **PATCH**:
   * **asks**: optional[[Team](#team)] (without [Club](#club))
   * **returns**: [Team](#team)
 
@@ -265,7 +265,7 @@
 
 * **GET**:
   * **returns**: [Team](#team)
-* **PUT**:
+* **PATCH**:
   * **asks**: optional[[Team](#team)] (without [Club](#club))
   * **returns**: [Team](#team)
 
@@ -315,7 +315,7 @@
 
 * **GET**:
   * **returns**: [Team](#team)
-* **PUT**:
+* **PATCH**:
   * **asks**: optional[[Team](#team)] (without [Club](#club))
   * **returns**: [Team](#team)
 
