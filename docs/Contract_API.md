@@ -85,10 +85,9 @@
 
 ### Team
 
-* club: [Club](#club)
-* players: ([Player](#player), [Player](#player), [Player](#player))
-* behaviors: ([Behavior](#behavior), [Behavior](#behavior), [Behavior](#behavior))
-* substitutes: ([Player](#player), [Player](#player), [Player](#player))
+* players: [player\_id, player\_id, player\_id]
+* behaviors: [behavior\_id, behavior\_id, behavior\_id]
+* substitutes: [player\_id, player\_id, player\_id]
 * line\_up: "1-1-1" | "2-1" | "1-2"
 
 ### Coordinates
@@ -114,8 +113,20 @@
 ### MatchDetailed
 
 * match\_id: number
-* local: [Team](#team)
-* visitor: [Team](#team)
+* local: {
+  - club: [Club](#club),
+  -  players: ([Player](#player), [Player](#player), [Player](#player)),
+  - behaviors: ([Behavior](#behavior), [Behavior](#behavior), [Behavior](#behavior)),
+  - substitutes: ([Player](#player), [Player](#player), [Player](#player)),
+  - line\_up: "1-1-1" | "2-1" | "1-2"
+* }
+* visitor: {
+  - club: [Club](#club),
+  -  players: ([Player](#player), [Player](#player), [Player](#player)),
+  - behaviors: ([Behavior](#behavior), [Behavior](#behavior), [Behavior](#behavior)),
+  - substitutes: ([Player](#player), [Player](#player), [Player](#player)),
+  - line\_up: "1-1-1" | "2-1" | "1-2"
+* }
 * local\_goals: number
 * visitor\_goals: number
 * local\_coords: ([Coordinates](#coordinates), [Coordinates](#coordinates), [Coordinates](#coordinates))
