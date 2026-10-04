@@ -114,18 +114,18 @@
 
 * match\_id: number
 * local: {
-  - club: [Club](#club),
-  -  players: ([Player](#player), [Player](#player), [Player](#player)),
-  - behaviors: ([Behavior](#behavior), [Behavior](#behavior), [Behavior](#behavior)),
-  - substitutes: ([Player](#player), [Player](#player), [Player](#player)),
-  - line\_up: "1-1-1" | "2-1" | "1-2"
+  * club: [Club](#club),
+  * players: ([Player](#player), [Player](#player), [Player](#player)),
+  * behaviors: ([Behavior](#behavior), [Behavior](#behavior), [Behavior](#behavior)),
+  * substitutes: ([Player](#player), [Player](#player), [Player](#player)),
+  * line\_up: "1-1-1" | "2-1" | "1-2"
 * }
 * visitor: {
-  - club: [Club](#club),
-  -  players: ([Player](#player), [Player](#player), [Player](#player)),
-  - behaviors: ([Behavior](#behavior), [Behavior](#behavior), [Behavior](#behavior)),
-  - substitutes: ([Player](#player), [Player](#player), [Player](#player)),
-  - line\_up: "1-1-1" | "2-1" | "1-2"
+  * club: [Club](#club),
+  * players: ([Player](#player), [Player](#player), [Player](#player)),
+  * behaviors: ([Behavior](#behavior), [Behavior](#behavior), [Behavior](#behavior)),
+  * substitutes: ([Player](#player), [Player](#player), [Player](#player)),
+  * line\_up: "1-1-1" | "2-1" | "1-2"
 * }
 * local\_goals: number
 * visitor\_goals: number
