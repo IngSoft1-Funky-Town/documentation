@@ -148,7 +148,7 @@
 * is\_private: boolean
 * name: string
 * match: [Match](#match)
-* clubs\_count: number
+* clubs: list[id\_user]
 * max\_clubs: number
 * result: number
 * time: number
@@ -378,7 +378,8 @@
   * [leagues:update:match:goals](#leaguesupdatematchgoals)
   * [leagues:update:match:status](#leaguesupdatematchstatus)
   * [leagues:update:status](#leaguesupdatestatus)
-  * [leagues:update:clubs_count](#leaguesupdateclubs_count)
+  * [leagues:update:club:add](#leaguesupdateclubadd)
+  * [leagues:update:club:delete](#leaguesupdateclubdelete)
   * [leagues:delete](#leaguesdelete)
 * [League Screen](#league-screen)
   * [league:status](#leaguestatus)
@@ -461,13 +462,23 @@
   }
 ```
 
-* <a id="leaguesupdateclubs_count"></a>**leagues:update:clubs_count** *(SERVER -> CLIENT)*:
+* <a id="leaguesupdateclubadd"></a>**leagues:update:club:add** *(SERVER -> CLIENT)*:
 
 ```json
   {
-    "type": "leagues:update:clubs_count",
+    "type": "leagues:update:club:add",
     "id_league": number,
-    "clubs_count": number
+    "id_user": number
+  }
+```
+
+* <a id="leaguesupdateclubdelete"></a>**leagues:update:club:delete** *(SERVER -> CLIENT)*:
+
+```json
+  {
+    "type": "leagues:update:club:delete",
+    "id_league": number,
+    "id_user": number
   }
 ```
 
