@@ -53,22 +53,21 @@
 
 ### User
 
-* user\_id: number
+* id\_user: number
 * email: string
-* username: string
 * club\_name: string
 * avatar: string
 * points: number
 
 ### Club
 
-* club\_id: number
-* name: string  
+* id\_user: number
+* club\_name: string  
 * avatar: string  
 
 ### Player
 
-* player\_id: number
+* id\_player: number
 * name: string
 * number: number
 * strength: number
@@ -79,15 +78,15 @@
 
 ### Behavior
 
-* behavior\_id: number
+* id\_behavior: number
 * name: string
 * code: string
 
 ### Team
 
-* players: [player\_id, player\_id, player\_id]
-* behaviors: [behavior\_id, behavior\_id, behavior\_id]
-* substitutes: [player\_id, player\_id, player\_id]
+* players: [id\_player, id\_player, id\_player]
+* behaviors: [id\_behavior, id\_behavior, id\_behavior]
+* substitutes: [id\_player, id\_player, id\_player]
 * line\_up: "1-1-1" | "2-1" | "1-2"
 
 ### Coordinates
@@ -102,7 +101,7 @@
 
 ### Match
 
-* match\_id: number
+* id\_match: number
 * local: [Club](#club)
 * visitor: [Club](#club)
 * local\_goals: number
@@ -112,7 +111,7 @@
 
 ### MatchDetailed
 
-* match\_id: number
+* id\_match: number
 * local: {
   * club: [Club](#club),
   * players: ([Player](#player), [Player](#player), [Player](#player)),
@@ -145,7 +144,7 @@
 
 ### League
 
-* league\_id: number
+* id\_league: number
 * is\_private: boolean
 * name: string
 * match: [Match](#match)
@@ -157,7 +156,7 @@
 
 ### LeagueDetailed
 
-* league\_id: number
+* id\_league: number
 * is\_private: boolean
 * name: string
 * creator: [Club](#club)
@@ -170,7 +169,7 @@
 
 ### FriendlyMatch
 
-* friendly\_id: number
+* id\_friendly: number
 * is\_private: boolean
 * name: string
 * match: [Match](#match)
@@ -344,7 +343,6 @@
 
 * **POST**:
   * **asks**:
-    * username: string
     * email: string
     * password: string
   * **returns**:
