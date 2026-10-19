@@ -24,23 +24,23 @@
 
 * [/users/me](#usersme)
 * [/players/](#players)
-* [/players/{player_id}/](#playersplayer_id)
+* [/players/{id_player}/](#playersid_player)
 * [/behaviors/](#behaviors)
-* [/behaviors/{behavior_id}/](#behaviorsbehavior_id)
+* [/behaviors/{id_behavior}/](#behaviorsid_behavior)
 * [/team/](#team-1)
 * [/leagues/](#leagues)
-* [/leagues/{league_id}/](#leaguesleague_id)
-* [/leagues/{league_id}/join](#leaguesleague_idjoin)
-* [/leagues/{league_id}/leave](#leaguesleague_idleave)
-* [/leagues/{league_id}/start](#leaguesleague_idstart)
-* [/leagues/{league_id}/team](#leaguesleague_idteam)
-* [/matches/{match_id}/](#matchesmatch_id)
+* [/leagues/{id_league}/](#leaguesid_league)
+* [/leagues/{id_league}/join](#leaguesid_leaguejoin)
+* [/leagues/{id_league}/leave](#leaguesid_leagueleave)
+* [/leagues/{id_league}/start](#leaguesid_leaguestart)
+* [/leagues/{id_league}/team](#leaguesid_leagueteam)
+* [/matches/{id_match}/](#matchesid_match)
 * [/friendlymatch/](#friendlymatch-1)
-* [/friendlymatch/{friendly_id}/](#friendlymatchfriendly_id)
-* [/friendlymatch/{friendly_id}/join](#friendlymatchfriendly_idjoin)
-* [/friendlymatch/{friendly_id}/leave](#friendlymatchfriendly_idleave)
-* [/friendlymatch/{friendly_id}/start](#friendlymatchfriendly_idstart)
-* [/friendlymatch/{friendly_id}/team](#friendlymatchfriendly_idteam)
+* [/friendlymatch/{id_friendly}/](#friendlymatchid_friendly)
+* [/friendlymatch/{id_friendly}/join](#friendlymatchid_friendlyjoin)
+* [/friendlymatch/{id_friendly}/leave](#friendlymatchid_friendlyleave)
+* [/friendlymatch/{id_friendly}/start](#friendlymatchid_friendlystart)
+* [/friendlymatch/{id_friendly}/team](#friendlymatchid_friendlyteam)
 * [/history/](#history)
 * [/classification/](#classification-1)
 * [/auth/register/](#authregister)
@@ -53,22 +53,21 @@
 
 ### User
 
-* user\_id: number
+* id\_user: number
 * email: string
-* username: string
 * club\_name: string
 * avatar: string
 * points: number
 
 ### Club
 
-* club\_id: number
-* name: string  
+* id\_user: number
+* club\_name: string  
 * avatar: string  
 
 ### Player
 
-* player\_id: number
+* id\_player: number
 * name: string
 * number: number
 * strength: number
@@ -79,15 +78,15 @@
 
 ### Behavior
 
-* behavior\_id: number
+* id\_behavior: number
 * name: string
 * code: string
 
 ### Team
 
-* players: [player\_id, player\_id, player\_id]
-* behaviors: [behavior\_id, behavior\_id, behavior\_id]
-* substitutes: [player\_id, player\_id, player\_id]
+* players: [id\_player, id\_player, id\_player]
+* behaviors: [id\_behavior, id\_behavior, id\_behavior]
+* substitutes: [id\_player, id\_player, id\_player]
 * line\_up: "1-1-1" | "2-1" | "1-2"
 
 ### Coordinates
@@ -102,7 +101,7 @@
 
 ### Match
 
-* match\_id: number
+* id\_match: number
 * local: [Club](#club)
 * visitor: [Club](#club)
 * local\_goals: number
@@ -112,7 +111,7 @@
 
 ### MatchDetailed
 
-* match\_id: number
+* id\_match: number
 * local: {
   * club: [Club](#club),
   * players: ([Player](#player), [Player](#player), [Player](#player)),
@@ -145,11 +144,11 @@
 
 ### League
 
-* league\_id: number
+* id\_league: number
 * is\_private: boolean
 * name: string
 * match: [Match](#match)
-* clubs\_count: number
+* clubs: list[id\_user]
 * max\_clubs: number
 * result: number
 * time: number
@@ -157,7 +156,7 @@
 
 ### LeagueDetailed
 
-* league\_id: number
+* id\_league: number
 * is\_private: boolean
 * name: string
 * creator: [Club](#club)
@@ -170,7 +169,7 @@
 
 ### FriendlyMatch
 
-* friendly\_id: number
+* id\_friendly: number
 * is\_private: boolean
 * name: string
 * match: [Match](#match)
@@ -198,7 +197,7 @@
   * **asks**: [Player](#player) (without id)
   * **returns**: [Player](#player)
 
-### /players/{player_id}/
+### /players/{id_player}/
 
 * **GET**:
   * **returns**: [Player](#player)
@@ -213,7 +212,7 @@
   * **asks**: [Behavior](#behavior) (without id)
   * **returns**: [Behavior](#behavior)
 
-### /behaviors/{behavior_id}/
+### /behaviors/{id_behavior}/
 
 * **GET**:
   * **returns**: [Behavior](#behavior)
@@ -248,31 +247,31 @@
     * time: number
   * **returns**: [LeagueDetailed](#leaguedetailed)
 
-### /leagues/{league_id}/
+### /leagues/{id_league}/
 
 * **GET**:
   * **returns**: [LeagueDetailed](#leaguedetailed)
 * **DELETE**:
   * only method
 
-### /leagues/{league_id}/join
+### /leagues/{id_league}/join
 
 * **POST**:
   * **asks**:
     * password?: string
   * **returns**: [LeagueDetailed](#leaguedetailed)
 
-### /leagues/{league_id}/leave
+### /leagues/{id_league}/leave
 
 * **POST**:
   * only method
 
-### /leagues/{league_id}/start
+### /leagues/{id_league}/start
 
 * **POST**:
   * only method
 
-### /leagues/{league_id}/team
+### /leagues/{id_league}/team
 
 * **GET**:
   * **returns**: [Team](#team)
@@ -280,7 +279,7 @@
   * **asks**: optional[[Team](#team)] (without [Club](#club))
   * **returns**: [Team](#team)
 
-### /matches/{match_id}/
+### /matches/{id_match}/
 
 * **GET**:
   * **returns**: [MatchDetailed](#matchdetailed)
@@ -298,31 +297,31 @@
     * time: number
   * **returns**: [FriendlyMatch](#friendlymatch)
 
-### /friendlymatch/{friendly_id}/
+### /friendlymatch/{id_friendly}/
 
 * **GET**:
   * **returns**: [FriendlyMatch](#friendlymatch)
 * **DELETE**:
   * only method
 
-### /friendlymatch/{friendly_id}/join
+### /friendlymatch/{id_friendly}/join
 
 * **POST**:
   * **asks**:
     * password?: string
   * **returns**: [FriendlyMatch](#friendlymatch)
 
-### /friendlymatch/{friendly_id}/leave
+### /friendlymatch/{id_friendly}/leave
 
 * **POST**:
   * only method
 
-### /friendlymatch/{friendly_id}/start
+### /friendlymatch/{id_friendly}/start
 
 * **POST**:
   * only method
 
-### /friendlymatch/{friendly_id}/team
+### /friendlymatch/{id_friendly}/team
 
 * **GET**:
   * **returns**: [Team](#team)
@@ -344,7 +343,6 @@
 
 * **POST**:
   * **asks**:
-    * username: string
     * email: string
     * password: string
   * **returns**:
@@ -380,7 +378,8 @@
   * [leagues:update:match:goals](#leaguesupdatematchgoals)
   * [leagues:update:match:status](#leaguesupdatematchstatus)
   * [leagues:update:status](#leaguesupdatestatus)
-  * [leagues:update:clubs_count](#leaguesupdateclubs_count)
+  * [leagues:update:club:add](#leaguesupdateclubadd)
+  * [leagues:update:club:delete](#leaguesupdateclubdelete)
   * [leagues:delete](#leaguesdelete)
 * [League Screen](#league-screen)
   * [league:status](#leaguestatus)
@@ -422,7 +421,7 @@
 ```json
   {
     "type": "leagues:update:match",
-    "league_id": number,
+    "id_league": number,
     "match": Match
   }
 ```
@@ -434,7 +433,7 @@
 ```json
   {
     "type": "leagues:update:match:goals",
-    "league_id": number,
+    "id_league": number,
     "local_goals": number,
     "visitor_goals": number
   }
@@ -445,7 +444,7 @@
 ```json
   {
     "type": "leagues:update:match:status",
-    "league_id": number,
+    "id_league": number,
     "status": "pending" | "in_progress" | "finished"
   }
 ```
@@ -457,19 +456,29 @@
 ```json
   {
     "type": "leagues:update:status",
-    "league_id": number,
+    "id_league": number,
     "result": number,
     "status": "pending" | "in_progress" | "finished"
   }
 ```
 
-* <a id="leaguesupdateclubs_count"></a>**leagues:update:clubs_count** *(SERVER -> CLIENT)*:
+* <a id="leaguesupdateclubadd"></a>**leagues:update:club:add** *(SERVER -> CLIENT)*:
 
 ```json
   {
-    "type": "leagues:update:clubs_count",
-    "league_id": number,
-    "clubs_count": number
+    "type": "leagues:update:club:add",
+    "id_league": number,
+    "id_user": number
+  }
+```
+
+* <a id="leaguesupdateclubdelete"></a>**leagues:update:club:delete** *(SERVER -> CLIENT)*:
+
+```json
+  {
+    "type": "leagues:update:club:delete",
+    "id_league": number,
+    "id_user": number
   }
 ```
 
@@ -478,7 +487,7 @@
 ```json
   {
     "type": "leagues:delete",
-    "league_id": number
+    "id_league": number
   }
 ```
 
@@ -518,7 +527,7 @@
 ```json
   {
     "type": "league:club:delete",
-    "club_id": number
+    "id_club": number
   }
 ```
 
@@ -539,7 +548,7 @@
 ```json
   {
     "type": "league:match:goals",
-    "match_id": number,
+    "id_match": number,
     "local_goals": number,
     "visitor_goals": number
   }
@@ -550,7 +559,7 @@
 ```json
   {
     "type": "league:match:status",
-    "match_id": number,
+    "id_match": number,
     "status": "pending" | "in_progress" | "finished"
   }
 ```
@@ -587,8 +596,8 @@
 ```json
   {
     "type": "match:break",
-    "local": (player_id, player_id, player_id),
-    "visitor": (player_id, player_id, player_id)
+    "local": (id_player, id_player, id_player),
+    "visitor": (id_player, id_player, id_player)
   }
 ```
 
@@ -597,7 +606,7 @@
 ```json
   {
     "type": "client:match:substitutes",
-    "players": (player_id, player_id, player_id)
+    "players": (id_player, id_player, id_player)
   }
 ```
 
@@ -606,7 +615,7 @@
 ```json
   {
     "type": "client:match:behaviors",
-    "behaviors": (behavior_id, behavior_id, behavior_id)
+    "behaviors": (id_behavior, id_behavior, id_behavior)
   }
 ```
 
