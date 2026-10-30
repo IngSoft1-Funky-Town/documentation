@@ -147,6 +147,7 @@
 * id\_league: number
 * is\_private: boolean
 * name: string
+* creator: [Club](#club)
 * match: [Match](#match)
 * clubs: list[id\_user]
 * max\_clubs: number
