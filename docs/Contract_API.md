@@ -126,6 +126,7 @@
   * substitutes: ([Player](#player), [Player](#player), [Player](#player)),
   * line\_up: "1-1-1" | "2-1" | "1-2"
 * }
+* changes: (id_player | null, id_player | null, id_player | null) 
 * local\_goals: number
 * visitor\_goals: number
 * local\_coords: ([Coordinates](#coordinates), [Coordinates](#coordinates), [Coordinates](#coordinates))
@@ -393,7 +394,8 @@
 * [Match Screen](#match-screen)
   * [match:update](#matchupdate)
   * [match:goals](#matchgoals)
-  * [match:break](#matchbreak)
+  * [match:update:break](#matchupdatebreak)
+  * [match:end:break](#matchendbreak)
   * [client:match:substitutes](#clientmatchsubstitutes)
   * [client:match:behaviors](#clientmatchbehaviors)
   * [match:status](#matchstatus)
@@ -590,13 +592,24 @@
   }
 ```
 
-> *Cambia a jugadores titulares y suplentes*
+> *Actualiza el tiempo de la pausa*
 
-* <a id="matchbreak"></a>**match:break** *(SERVER -> CLIENT)*:
+* <a id="matchupdatebreak"></a>**match:update:break** *(SERVER -> CLIENT)*:
 
 ```json
   {
-    "type": "match:break",
+    "type": "match:update:break",
+    "time_break": number
+  }
+```
+
+> *Cambia a jugadores titulares y suplentes*
+
+* <a id="matchendbreak"></a>**match:end:break** *(SERVER -> CLIENT)*:
+
+```json
+  {
+    "type": "match:end:break",
     "local": (id_player, id_player, id_player),
     "visitor": (id_player, id_player, id_player)
   }
