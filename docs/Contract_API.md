@@ -150,7 +150,7 @@
 * name: string
 * creator: [Club](#club)
 * match: [Match](#match)
-* clubs: list[id\_user]
+* clubs: list[[Club](#club)]
 * max\_clubs: number
 * result: number
 * time: number
@@ -471,7 +471,7 @@
   {
     "type": "leagues:update:club:add",
     "id_league": number,
-    "id_user": number
+    "club": Club
   }
 ```
 
@@ -481,7 +481,7 @@
   {
     "type": "leagues:update:club:delete",
     "id_league": number,
-    "id_user": number
+    "id_club": number
   }
 ```
 
