@@ -35,6 +35,8 @@
 * [/leagues/{id_league}/start](#leaguesid_leaguestart)
 * [/leagues/{id_league}/team](#leaguesid_leagueteam)
 * [/matches/{id_match}/](#matchesid_match)
+* [/matches/{id_match}/players](#matchesid_matchplayers)
+* [/matches/{id_match}/behaviors](#matchesid_matchbehaviors)
 * [/friendlymatch/](#friendlymatch-1)
 * [/friendlymatch/{id_friendly}/](#friendlymatchid_friendly)
 * [/friendlymatch/{id_friendly}/join](#friendlymatchid_friendlyjoin)
@@ -126,7 +128,7 @@
   * substitutes: ([Player](#player), [Player](#player), [Player](#player)),
   * line\_up: "1-1-1" | "2-1" | "1-2"
 * }
-* changes: (id_player | null, id_player | null, id_player | null) 
+* changes: (id\_player | null, id\_player | null, id\_player | null) 
 * local\_goals: number
 * visitor\_goals: number
 * local\_coords: ([Coordinates](#coordinates), [Coordinates](#coordinates), [Coordinates](#coordinates))
@@ -286,6 +288,18 @@
 * **GET**:
   * **returns**: [MatchDetailed](#matchdetailed)
 
+### /matches/{id_match}/players
+
+* **PATCH**:
+  * **asks**: (id\_player | null, id\_player | null, id\_player | null)
+  * **returns**: (id\_player | null, id\_player | null, id\_player | null)
+
+### /matches/{id_match}/behaviors
+
+* **PATCH**:
+  * **asks**: (id\_behavior | null, id\_behavior | null, id\_behavior | null)
+  * **returns**: (id\_behavior | null, id\_behavior | null, id\_behavior | null)
+
 ### /friendlymatch/
 
 * **GET**:
@@ -396,8 +410,6 @@
   * [match:goals](#matchgoals)
   * [match:update:break](#matchupdatebreak)
   * [match:end:break](#matchendbreak)
-  * [client:match:substitutes](#clientmatchsubstitutes)
-  * [client:match:behaviors](#clientmatchbehaviors)
   * [match:status](#matchstatus)
 
 ---
@@ -612,24 +624,6 @@
     "type": "match:end:break",
     "local": (id_player, id_player, id_player),
     "visitor": (id_player, id_player, id_player)
-  }
-```
-
-* <a id="clientmatchsubstitutes"></a>**client:match:substitutes** *(CLIENT -> SERVER)*:
-
-```json
-  {
-    "type": "client:match:substitutes",
-    "players": (id_player, id_player, id_player)
-  }
-```
-
-* <a id="clientmatchbehaviors"></a>**client:match:behaviors** *(CLIENT -> SERVER)*:
-
-```json
-  {
-    "type": "client:match:behaviors",
-    "behaviors": (id_behavior, id_behavior, id_behavior)
   }
 ```
 
